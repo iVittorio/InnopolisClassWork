@@ -4,6 +4,11 @@ import java.util.*;
 
 /**
  * Created by i.viktor on 07/11/2016.
+ * Необходимо разработать пул объектов. Скоуп требований:
+ * 1. Возможность получить объект с помощью вызова getObject()
+ * 2. Возможность вернуть объект в пул
+ * 3. Возможность задания размерности пула. При превышении размерности новые объекты не должны создаваться, а вызывающий поток должен быть переведен в ожидание. По истечении таймаута, если объект не был выдан, то выбрасывается PoolException
+ * 4. Возможность задания таймаута, в течении которого поток может ожидать возвращения объекта
  */
 public class ObjectPool {
     private int size;
@@ -12,10 +17,10 @@ public class ObjectPool {
     private final List<Object> available = new LinkedList<>();
 
     /**
-     * Creates a new object if not available or return available.
+     * Creates and return a new object if not available or return available.
      * Throw PoolException if after the timeout there is no available objects
      *
-     * @return creates a new object if not available or return available
+     * @return a new object if not available or return available
      * @throws PoolException throws if after the timeout there is no available objects
      */
     public synchronized Object getObject() throws PoolException {
