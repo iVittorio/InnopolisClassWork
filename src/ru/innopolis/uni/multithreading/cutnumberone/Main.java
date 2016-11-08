@@ -7,24 +7,19 @@ import java.util.Map;
  * Created by i.viktor on 08/11/2016.
  */
 public class Main {
-    public static final Map<Integer, Integer> sharedMap = new HashMap<>();
-    public volatile static boolean interruptMarker;
-    public volatile static int notifyCount = 1;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        Map<Integer, Integer> sharedMap = new HashMap<>();
+        int seconds = 1;
 
+        Box box = new Box(sharedMap, false, seconds);
 
-        Box box = new Box(sharedMap);
-
-        Thread generator = new ThreadGenerator(sharedMap, notifyCount);
-        Thread print = new ThreadPrinter(sharedMap, interruptMarker, notifyCount);
+        Thread generator = new ThreadGenerator(box);
+        Thread printer = new ThreadPrinter(box);
 
         generator.start();
-        print.start();
+        printer.start();
 
 
-
-//        generator.interrupt();
     }
-
 }

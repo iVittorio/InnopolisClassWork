@@ -6,32 +6,33 @@ import java.util.Map;
  * Created by i.viktor on 08/11/2016.
  */
 public class Box {
-    private final Map<Integer, Integer> map;
-    private volatile boolean marker;
-    private volatile int notifyCounter;
+    private volatile Map<Integer, Integer> sharedMap;
+    private volatile int seconds;
+    private volatile boolean isFinish;
 
-
-    public Box(Map<Integer, Integer> map) {
-        this.map = map;
+    public Box(Map<Integer, Integer> sharedMap, boolean isFinish, int seconds) {
+        this.isFinish = isFinish;
+        this.seconds = seconds;
+        this.sharedMap = sharedMap;
     }
 
-    public Map<Integer, Integer> getMap() {
-        return map;
+    public boolean isFinish() {
+        return isFinish;
     }
 
-    public boolean isMarker() {
-        return marker;
+    public int getSeconds() {
+        return seconds;
     }
 
-    public int getNotifyCounter() {
-        return notifyCounter;
+    public Map<Integer, Integer> getSharedMap() {
+        return sharedMap;
     }
 
-    public void setMarker(boolean marker) {
-        this.marker = marker;
+    public void incrementSecond() {
+        seconds++;
     }
 
-    public void setNotifyCounter(int notifyCounter) {
-        this.notifyCounter = notifyCounter;
+    public void setFinish(boolean finish) {
+        isFinish = finish;
     }
 }
