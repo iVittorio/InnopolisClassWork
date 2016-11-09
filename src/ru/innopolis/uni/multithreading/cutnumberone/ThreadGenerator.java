@@ -4,6 +4,7 @@ import java.util.Map;
 
 /**
  * Created by i.viktor on 08/11/2016.
+ * 
  */
 public class ThreadGenerator extends Thread {
     private final Box box;

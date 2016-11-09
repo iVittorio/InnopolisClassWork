@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ru.innopolis.uni.reflection.ClassWork.PrimitiveObject>
+  <achar type="char" value="c"/>
+  <adouble type="double" value="5.6"/>
+  <afloat type="float" value="1.5"/>
+  <along type="long" value="100"/>
+  <anint type="int" value="500"/>
+  <ashort type="short" value="6"/>
+  <aboolean type="boolean" value="true"/>
+  <abyte type="byte" value="4"/>
+</ru.innopolis.uni.reflection.ClassWork.PrimitiveObject>
