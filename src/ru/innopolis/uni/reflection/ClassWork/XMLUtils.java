@@ -22,6 +22,13 @@ import java.util.Map;
 public class XMLUtils {
 
 
+    /**
+     * Serialize an object with only primitive and String types of fields.
+     * Fields values gets from getter methods and write to XML file specified in "path"
+     *
+     * @param object the object to serialize
+     * @param path   filepath to serialize
+     */
     public void serializeToXML(Object object, String path) {
         try {
             Document document = docBuild(object);
@@ -89,6 +96,13 @@ public class XMLUtils {
     }
 
 
+    /**
+     * Reads full class name from XML file and get new object instance.
+     * Fills field values from XML uses setters. Works with primitive and String fields only
+     *
+     * @param path the path ro XML file
+     * @return the object with field values from XML file
+     */
     public Object deserializeFromXml(String path) {
         Object desObject = null;
         try {
